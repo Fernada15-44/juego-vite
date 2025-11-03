@@ -1,4 +1,4 @@
-import _ from 'underscore';
+import { crearDeck } from './usecase/deck-function.js';
 /**
  * 2C = Two of Clubs
  * 2D = Two of Diamonds
@@ -23,27 +23,7 @@ const divCartasComputadora = document.querySelector('#computadora-cartas');
 
 const puntosHTML = document.querySelectorAll('small');
 
-// Esta función crea un nuevo deck
-const crearDeck = () => {
-
-    for( let i = 2; i <= 10; i++ ) {
-        for( let tipo of tipos ) {
-            deck.push( i + tipo);
-        }
-    }
-
-    for( let tipo of tipos ) {
-        for( let esp of especiales ) {
-            deck.push( esp + tipo);
-        }
-    }
-    // console.log( deck );
-    deck = _.shuffle( deck );
-    console.log( deck );
-    return deck;
-}
-
-crearDeck();
+deck = crearDeck(tipos, especiales);
 
 
 // Esta función me permite tomar una carta
