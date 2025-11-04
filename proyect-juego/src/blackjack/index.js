@@ -1,4 +1,5 @@
 import { crearDeck } from './usecase/deck-function.js';
+import { pedirCarta } from './usecase/pedir-carta.js';
 /**
  * 2C = Two of Clubs
  * 2D = Two of Diamonds
@@ -43,7 +44,7 @@ const valorCarta = (carta) => {
 // ===============================
 const turnoComputadora = (puntosMinimos) => {
     do {
-        const carta = pedirCarta();
+        const carta = pedirCarta(deck);
 
         puntosComputadora += valorCarta(carta);
         puntosHTML[1].innerText = puntosComputadora;
@@ -61,13 +62,13 @@ const turnoComputadora = (puntosMinimos) => {
 
     setTimeout(() => {
         if (puntosComputadora === puntosMinimos) {
-            alert('Nadie gana 😐');
+            alert('Nadie gana ');
         } else if (puntosMinimos > 21) {
-            alert('Computadora gana 💻');
+            alert('Computadora gana ');
         } else if (puntosComputadora > 21) {
-            alert('Jugador gana 🏆');
+            alert('Jugador gana ');
         } else {
-            alert('Computadora gana 💻');
+            alert('Computadora gana ');
         }
     }, 100);
 }
@@ -76,7 +77,7 @@ const turnoComputadora = (puntosMinimos) => {
 // Eventos
 // ===============================
 btnPedir.addEventListener('click', () => {
-    const carta = pedirCarta();
+    const carta = pedirCarta(deck);
 
     puntosJugador += valorCarta(carta);
     puntosHTML[0].innerText = puntosJugador;
