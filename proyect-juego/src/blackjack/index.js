@@ -27,16 +27,6 @@ const puntosHTML = document.querySelectorAll('small');
 deck = crearDeck(tipos, especiales);
 
 
-// ===============================
-// Función para pedir carta
-// ===============================
-const pedirCarta = () => {
-    if (deck.length === 0) {
-        throw 'No hay cartas en el deck';
-    }
-    const carta = deck.pop();
-    return carta;
-}
 
 // ===============================
 // Obtener valor de la carta
