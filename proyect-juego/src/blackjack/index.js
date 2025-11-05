@@ -1,4 +1,5 @@
-import { crearDeck, pedirCarta, valorCarta, turnoComputadora } from "./usecase";
+import { crearDeck, pedirCarta, valorCarta, turnoComputadora, crearCartaHTML } from "./usecase";
+
 /**
  * 2C = Two of Clubs
  * 2D = Two of Diamonds
@@ -32,12 +33,14 @@ deck = crearDeck(tipos, especiales);
 // Eventos
 // ===============================
 btnPedir.addEventListener('click', () => {
+
     const carta = pedirCarta(deck);
 
     puntosJugador += valorCarta(carta);
     puntosHTML[0].innerText = puntosJugador;
 
     //las imagenes de las cartas
+    const imgCarta = crearCartaHTML(carta);
 
     divCartasJugador.append(imgCarta);
 

@@ -1,3 +1,4 @@
+import { crearCartaHTML } from "./crear-carta-html.js";
 import { pedirCarta } from "./pedir-carta.js";
 import { valorCarta } from "./valor-carta.js";
 /**
@@ -22,9 +23,10 @@ export const turnoComputadora = (puntosMinimos, puntosHTML, divCartasComputadora
         puntosComputadora += valorCarta(carta);
         puntosHTML.innerText = puntosComputadora;
 
-        const imgCarta = document.createElement('img');
-        imgCarta.src = `assets/cartas/${carta}.png`;
-        imgCarta.classList.add('carta');
+       
+        const imgCarta = crearCartaHTML(carta);
+
+
         divCartasComputadora.append(imgCarta);
 
         if (puntosMinimos > 21) {
